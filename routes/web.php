@@ -11,4 +11,12 @@
 |
 */
 
-Route::get('/', 'CategoryController@index');
+
+Route::namespace('BackEnd')->prefix('admin')->group(function(){
+Route::get('/', 'HomeController@index');
+Route::resource('users','UserController')->except('show','delete');	
+Route::resource('categories','CategoryController')->except('show','delete');	
+});
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
