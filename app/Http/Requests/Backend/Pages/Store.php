@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Backend\Categoies;
+namespace App\Http\Requests\Backend\Pages;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,6 +25,7 @@ class Store extends FormRequest
     {
         return [
         'name' => ['required','max:191'],
+        'desc' => ['required','min:10'],
         'meta_keywords' => ['max:191'],
         'meta_desc' => ['max:191'],
         ];

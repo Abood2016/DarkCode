@@ -11,13 +11,49 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="javascript:void(0)">
+          <li class="nav-item {{ is_active('home') }} ">
+            <a class="nav-link" href="{{route('dashboard.index')}}">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <!-- your sidebar here -->
+          <li class="nav-item {{ is_active('users') }}  ">
+            <a class="nav-link" href="{{route('users.index')}}">
+              <i class="material-icons">person</i>
+              <p>Users</p>
+            </a>
+          </li>
+           <li class="nav-item {{ is_active('categories') }}  ">
+            <a class="nav-link" href="{{route('categories.index')}}">
+              <i class="material-icons">category</i>
+              <p>Categories</p>
+            </a>
+          </li>
+            <li class="nav-item {{ is_active('skills') }}  ">
+            <a class="nav-link" href="{{route('skills.index')}}">
+              <i class="material-icons">list</i>
+              <p>Skills</p>
+            </a>
+          </li>
+           <li class="nav-item {{ is_active('tags') }}  ">
+            <a class="nav-link" href="{{route('tags.index')}}">
+              <i class="material-icons">library_books</i>
+              <p>Tags</p>
+            </a>
+          </li>
+           <li class="nav-item {{ is_active('pages') }}  ">
+            <a class="nav-link" href="{{route('pages.index')}}">
+              <i class="material-icons">list</i>
+              <p>Pages</p>
+            </a>
+          </li>
+          
+            <li class="nav-item {{ is_active('videos') }}  ">
+            <a class="nav-link" href="{{route('videos.index')}}">
+              <i class="material-icons">videos</i>
+              <p>Videos</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>

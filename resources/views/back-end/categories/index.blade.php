@@ -11,15 +11,6 @@
 
 	<div class="row">
 		       <div class="col-md-12">
-                            <form action="" method="GET">
-                                <div class="col-sm-4 form-group">
-                                    <input type="text" name="name" placeholder="Name" class="form-control"
-                                           value="{{app('request')->get('name')}}">
-                                </div>
-                                <div class="col-sm-12 form-action ">
-                                    <input type="submit" value="Search" class="btn btn-primary" >
-                                </div>
-                            </form>
               <div class="card">
                 <div class="card-header card-header-primary">
 
@@ -30,7 +21,7 @@
                 		  <p class="card-category"> List of Categories</p>
                 		</div>
                 		<div class="col-md-4 text-right">
-                			<a href="{{route('categories.create')}}" class="btn btn-white btn-round">Add New Categories</a>
+                			<a href="{{route('categories.create')}}" class="btn btn-white btn-round">Add New Category</a>
                 		</div>
                 	</div>
                 </div>
@@ -42,8 +33,11 @@
                         <th>
                           Name
                         </th>
+                          <th>
+                         Meta Keywords
+                        </th>
                         <th>
-                          Email
+                         Meta Description
                         </th>
                           <th class="text-right">
                           Action
@@ -53,8 +47,9 @@
                         @foreach($categories as $Category)
                         	<tr>
                         		<td>{{$Category->id}}</td>
-                        		<td>{{$Category->name}}</td>
-                        		<td>{{$Category->email}}</td>
+                            <td>{{$Category->name}}</td>
+                            <td>{{$Category->meta_keywords}}</td>
+                        		<td>{{$Category->meta_desc}}</td>
 	                        		<td class="td-actions text-right">
                                 @include('back-end.categories.Buttons.edit')
 	                              @include('back-end.categories.Buttons.delete')
@@ -63,7 +58,6 @@
                         @endforeach
                       </tbody>
                     </table>
-                    {!! $categories->links() !!}
                   </div>
                 </div>
               </div>

@@ -18,9 +18,7 @@
                                 </div>
                                 <div class="col-sm-12 form-action ">
                                     <input type="submit" value="Search" class="btn btn-primary" >
-                                </div>
-                                <div class="col-sm-12 form-action ">
-                              <a href="{{ route('users.index') }}" class="btn btn-primary"><i>Cancel</i></a>
+                                     <a href="{{ route('users.index') }}" class="btn btn-primary">Cancel</a>
                                 </div>
                             </form>
               <div class="card">
@@ -32,9 +30,9 @@
                 			<h4 class="card-title ">Users</h4>
                 		  <p class="card-category"> List of Users</p>
                 		</div>
-                		<div class="col-md-4 text-right">
-                			<a href="{{route('users.create')}}" class="btn btn-white btn-round">Add New User</a>
-                		</div>
+                  		<div class="col-md-4 text-right">
+                  			<a href="{{route('users.create')}}" class="btn btn-white btn-round">Add New User</a>
+                  		</div>
                 	</div>
                 </div>
                 <div class="card-body">
@@ -48,6 +46,9 @@
                         <th>
                           Email
                         </th>
+                        <th>
+                          Group
+                        </th>
                           <th class="text-right">
                           Action
                         </th>
@@ -57,7 +58,8 @@
                         	<tr>
                         		<td>{{$user->id}}</td>
                         		<td>{{$user->name}}</td>
-                        		<td>{{$user->email}}</td>
+                            <td>{{$user->email}}</td>
+                        		<td>{{$user->group}}</td>
 	                        		<td class="td-actions text-right">
                                 @include('back-end.users.Buttons.edit')
 	                              @include('back-end.users.Buttons.delete')

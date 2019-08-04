@@ -42,6 +42,17 @@
 				       <span class="text-danger">{{ $errors->has('password') ? $errors->first('password') : ''}}</span>
                  	 </div>
                  	</div>
+
+              <div class="col-md-6 " >
+              <div class="form-group bmd-form-group">
+              <label class="bmd-label-floating">User Group</label>
+                <select name="group" class="form-control {{$errors->has('published') ? 'has-error' : ''}}">
+                 <option value="admin" {{isset($users) && $users->group == 'admin' ? 'selected' : ''}}>Admin</option>
+                 <option value="user" {{isset($users) && $users->group == 'user' ? 'selected' : ''}}>User</option>
+                          </select>
+                          <span class="text-danger">{{ $errors->has('group') ? $errors->first('group') : ''}}</span>
+                   </div>
+                  </div>
                  </div>
                     <button type="submit" class="btn btn-primary pull-right">Update User</button>
                     <div class="clearfix"></div>
