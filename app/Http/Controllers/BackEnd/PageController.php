@@ -29,7 +29,9 @@ class PageController extends Controller
     {
         $pages = Page::create($request->all());
 
-          return redirect()->route('pages.index')->with('success','Add Successfully');
+       alert()->success('Page added Successfully','Done');
+
+          return redirect()->route('pages.index');
     }
 
     public function edit($id)
@@ -46,13 +48,16 @@ class PageController extends Controller
 
         $pages->update($requstArray);
 
-        return redirect()->route('pages.index')->with('success','Updated Successfully');
+       alert()->success('Page Updated Successfully','Done');
+
+        return redirect()->route('pages.index');
     }
 
     public function destroy($id)
     {
         $pages = Page::FindOrFail($id)->delete();    
-        return redirect()->route('pages.index')->with('success','Deleted Successfully');
+       alert()->success('Page Deleted Successfully','Done');
+        return redirect()->route('pages.index');
    
 
     }

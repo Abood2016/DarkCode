@@ -9,23 +9,24 @@
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
-          <div class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">
-                  <i class="material-icons">notifications</i>
-                  <p class="d-lg-none d-md-block">
-                    Notifications
-                  </p>
-                </a>  
-                  <li>
-                    <a href="">Logout</a>
-                  </li>
-                  <!--to add somthimg for nav  -->
-                  {{$slot}}
-              </li>
-              <!-- your navbar here -->
-            </ul>
+          <div class="collapse navbar-collapse justify-content-end" style="margin-right: 20px">
+         
+                <span class="text-warning" style="margin-right: 20px" >Welcome {{auth()->user()->name}}</span> 
+                
+                <div class="text-right">
+                  
+                
+                <a href="{{ route('logout') }}" title="Logout" 
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <!-- {{ __('Logout') }} -->
+                  <i class="material-icons">logout</i>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    </div>
           </div>
         </div>
       </nav>

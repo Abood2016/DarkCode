@@ -68,7 +68,15 @@
                             </td>
 
                             <td>
+                              @if(empty($video->category->name))
+                               <span class="text-warning">No Category Selected</span>
+                                <a href="{{ route('videos.edit',['id' => $video->id]) }}" title="Edit Video Category" class="btn btn-white btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+
+                                        </a>
+                               @else
                               {{$video->category->name}}
+                              @endif
                             </td>
 
                             <td>
@@ -83,6 +91,7 @@
                         @endforeach
                       </tbody>
                     </table>
+                      {!!  $videos->links() !!}
                   </div>
                 </div>
               </div>

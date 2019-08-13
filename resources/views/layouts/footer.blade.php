@@ -3,15 +3,14 @@
         <div class="row">
           <nav class="footer-nav">
             <ul>
+              @foreach($pages  as $page)
               <li>
-                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
+                <a href="{{route('front.page',
+                ['id'=>$page->id , 
+                'slug'=>slug($page->name)])}}" 
+                target="_blank">{{ $page->name }}</a>
               </li>
-              <li>
-                <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
-              </li>
+              @endforeach
             </ul>
           </nav>
           <div class="credits ml-auto">
@@ -24,4 +23,5 @@
           </div>
         </div>
       </div>
+      
     </footer>

@@ -12,22 +12,37 @@ public function commentStore(Store $request)
 
 	$requestArray = $request->all() + ['user_id' => auth()->user()->id];
 	Comment::create($requestArray);
-	return redirect()->route('videos.edit',['id' => $requestArray['video_id'] , '#comments'])->with('success','Comment Add ');
+    
+       alert()->success('Comment Add Successfully','Done');
+
+	return redirect()->route('videos.edit',['id' => $requestArray['video_id'] , '#comments']);
 }
 
 	public function destroyComment($id)
 	{	
+		$comment = Comment::FindOrFail($id);
 
-		$comment = Comment::find($id);
-		$comment->delete();	
-		return redirect()->route('videos.edit',['id' => $comment->video_id , '#comments'])->with('success','Comment Deleted ');
-	}
-
+    try {
+    $comment = Comment::where('id',$id)->first();
+  } catch (ModelNotFoundException $e) {
+       alert()->error('Comment not Found','Error');
+    return redirect()->back();
+  }
+  	$comment->delete();
+    alert()->success('Comment Deleted Successfully','Done');
+       
+     return redirect()->route('videos.edit',['id' => $comment->video_id , '#comments']);  
+    }
+	
+		
 	public function UpdateComment($id , Store $request)
 	{	
-		$comment = Comment::find($id);
+		$comment = Comment::FindOrFail($id);
 		$comment->update($request->all());	
-		return redirect()->route('videos.edit',['id' => $comment->video_id , '#comments'])->with('success','Comment Updated ','#comments');
+       
+       alert()->success('Comment Updated Successfully','Done');
+
+		return redirect()->route('videos.edit',['id' => $comment->video_id , '#comments']);
 	}
 
 }

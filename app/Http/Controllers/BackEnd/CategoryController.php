@@ -11,7 +11,7 @@ class CategoryController extends Controller
 
   public function index(Request $request)
     {
-  	  $categories = Category::all();
+  	  $categories = Category::paginate(5);
         return view('back-end.categories.index', compact('categories'));
     }
 
@@ -26,7 +26,9 @@ class CategoryController extends Controller
     {
         $category = Category::create($request->all());
 
-          return redirect()->route('categories.index')->with('success','Add Successfully');
+       alert()->success('Category Add Successfully','Done');
+
+          return redirect()->route('categories.index');
     }
 
 
@@ -44,14 +46,19 @@ class CategoryController extends Controller
         $requstArray = $request->all();
 
         $categories->update($requstArray);
-
-        return redirect()->route('categories.index')->with('success','Updated Successfully');
+      
+       alert()->success('Category Updated Successfully','Done');
+      
+        return redirect()->route('categories.index');
     }
 
 public function destroy($id)
     {
         $category = Category::FindOrFail($id)->delete();    
-        return redirect()->route('categories.index')->with('success','Deleted Successfully');
+       
+       alert()->success('Category Deleted Successfully','Done');
+
+        return redirect()->route('categories.index');
 
     }
 

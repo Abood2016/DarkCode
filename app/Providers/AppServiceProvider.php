@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Category;
 use App\Models\skill;
+use App\Models\Page;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -27,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->share('categories' , Category::get());
         view()->share('skills' , Skill::get());
+        view()->share('pages' , Page::get());
     }
 }

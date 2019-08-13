@@ -1,16 +1,15 @@
 <?php
 
 namespace App\Models;
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable,HasRoles;
+    use Notifiable;
 
-    protected $guard_name = 'web'; 
+    // protected $guard_name = 'web'; 
     /**
      * The attributes that are mass assignable.
      *

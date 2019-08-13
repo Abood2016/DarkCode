@@ -15,7 +15,7 @@ class SkillController extends Controller
         $skills = Skill::where([]);
         if ($request->has('name'))
             $skills = $skills->where('name', 'like', '%' . $request->input('name') . '%');
-        $data['skills'] = $skills->paginate(10);
+        $data['skills'] = $skills->paginate(5);
         return view('back-end.skills.index', $data);
     }
 
@@ -30,7 +30,9 @@ class SkillController extends Controller
     {
         $skills = Skill::create($request->all());
 
-          return redirect()->route('skills.index')->with('success','Add Successfully');
+       alert()->success('Skill Add Successfully','Done');
+
+          return redirect()->route('skills.index');
     }
 
     public function edit($id)
@@ -47,13 +49,17 @@ class SkillController extends Controller
 
         $skills->update($requstArray);
 
-        return redirect()->route('skills.index')->with('success','Updated Successfully');
+       alert()->success('Skill Updated Successfully','Done');
+
+
+        return redirect()->route('skills.index');
     }
 
     public function destroy($id)
     {
-        $skills = Skill::FindOrFail($id)->delete();    
-        return redirect()->route('skills.index')->with('success','Deleted Successfully');
+        $skills = Skill::FindOrFail($id)->delete();   
+       alert()->success('Skill Deleted Successfully','Done');
+        return redirect()->route('skills.index');
    
 
     }

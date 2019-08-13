@@ -5,10 +5,10 @@
       Tip 2: you can also add an image using data-image tag
   -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+        <a href="{{route('frontend.landing')}}" class="simple-text logo-normal">
+          DarkCode
         </a>
-      </div>
+      </div> 
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item {{ is_active('home') }} ">
@@ -50,8 +50,14 @@
           
             <li class="nav-item {{ is_active('videos') }}  ">
             <a class="nav-link" href="{{route('videos.index')}}">
-              <i class="material-icons">videos</i>
+              <i class="material-icons">video_call</i>
               <p>Videos</p>
+            </a>
+          </li>
+           <li class="nav-item {{ is_active('messeges') }}  ">
+            <a class="nav-link" href="{{route('messeges.index')}}">
+              <i class="material-icons">messages</i>
+              <p>Messages</p>
             </a>
           </li>
         </ul>

@@ -13,7 +13,7 @@ class TagController extends Controller
         $tags = Tag::where([]);
         if ($request->has('name'))
             $tags = $tags->where('name', 'like', '%' . $request->input('name') . '%');
-        $data['tags'] = $tags->paginate(10);
+        $data['tags'] = $tags->paginate(5);
         return view('back-end.tags.index', $data);
     }
 
@@ -28,7 +28,9 @@ class TagController extends Controller
     {
         $tags = Tag::create($request->all());
 
-          return redirect()->route('tags.index')->with('success','Add Successfully');
+       alert()->success('Tag Add Successfully','Done');
+
+          return redirect()->route('tags.index');
     }
 
     public function edit($id)
@@ -45,13 +47,18 @@ class TagController extends Controller
 
         $tags->update($requstArray);
 
-        return redirect()->route('tags.index')->with('success','Updated Successfully');
+       alert()->success('Tag Updated Successfully','Done');
+
+        return redirect()->route('tags.index');
     }
 
     public function destroy($id)
     {
         $tags = Tag::FindOrFail($id)->delete();    
-        return redirect()->route('tags.index')->with('success','Deleted Successfully');
+
+       alert()->success('Tag Deleted Successfully','Done');
+
+        return redirect()->route('tags.index');
    
 
     }

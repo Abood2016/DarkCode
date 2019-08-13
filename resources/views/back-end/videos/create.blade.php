@@ -42,8 +42,8 @@
                           <label class="bmd-label-floating">Video Description</label>
                           <textarea   cols="30" rows="5" name ="desc" class="form-control"></textarea>
                           <span class="text-danger">{{ $errors->has('desc') ? $errors->first('desc') : ''}}</span>
-                   </div>
-                  </div>
+                         </div>
+                        </div>
 
                  	<div class="col-md-12">
                         <div class="form-group bmd-form-group">

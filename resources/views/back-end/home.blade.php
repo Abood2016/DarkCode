@@ -11,4 +11,11 @@
 
       @endcomponent
 
+    @include('back-end.home-sections.statices')
+    
+    @include('back-end.home-sections.letestComment')
+
+
+
+
 @endsection

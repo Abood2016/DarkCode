@@ -19,7 +19,7 @@ class VideoController extends Controller
 
   public function index()
 	{
-	 $videos = Video::all();
+	 $videos = Video::paginate(5);
         
       return view('back-end.videos.index',compact('videos'))->with('category','user');
     }
@@ -65,7 +65,9 @@ class VideoController extends Controller
             $videos->tags()->sync($requstArray['tags']);
         }
 
-       return redirect()->route('videos.index')->with('success','Add Successfully');
+       alert()->success('Video Add Successfully','Done');
+
+       return redirect()->route('videos.index');
     }
 
 
@@ -93,13 +95,22 @@ class VideoController extends Controller
                 $videos->tags()->sync($requstArray['tags']);
             }
 
-        return redirect()->route('videos.index')->with('success','Updated Successfully');
+       alert()->success('Video Updated Successfully','Done');
+
+        return redirect()->route('videos.index');
     }
 
     public function destroy($id)
     {
-        $videos = Video::FindOrFail($id)->delete();    
-        return redirect()->route('videos.index')->with('success','Deleted Successfully');
+        $videos = Video::FindOrFail($id); 
+         //delete the video comment before deleting the video   
+         $videoComment = Comment::where('video_id',"=",$videos->id);
+        if($videoComment != null)
+            $videoComment->delete();
+
+        $videos->delete();
+       alert()->success('Video Deleted Successfully','Done');
+        return redirect()->route('videos.index');
    
 
     }
