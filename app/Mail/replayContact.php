@@ -34,7 +34,7 @@ class replayContact extends Mailable
         $contactMessage = $this->message;
         $replay = $this->replay;
 
-        return $this->to($this->message->email)
+        return $this->to($this->message->email)->subject("Relay")
         ->view('back-end.mails.replay-messages',compact('contactMessage','replay'));
     }
 }

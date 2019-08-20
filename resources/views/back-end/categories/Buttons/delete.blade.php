@@ -19,6 +19,7 @@
    
            function delete_categoy(event) {
             var id=$(event).data('id'); 
+            var self = $(event);
 
             swal({
                   title: "Are you sure?",
@@ -40,9 +41,8 @@
                         "_method":'DELETE'
                     },
                      success: function (data){
-                             $('#delete').parent().parent().hide();
+                             self.parent().parent().hide();
                          swal("Deleted!", "Category Deleted Succsefully.", "success");
-                        $('#delete').parent().parent().hide();
                         }
                 });
                     

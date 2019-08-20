@@ -13,11 +13,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
         	Users::class,
-        	Categories::class,
-        	Skills::class,
-        	Tags::class,
-            Videos::class,
-        	Comments::class,
+        	// Categories::class,
+        	// Skills::class,
+        	// Tags::class,
+            // Videos::class,
+        	// Comments::class,
         	]);
     }
 }

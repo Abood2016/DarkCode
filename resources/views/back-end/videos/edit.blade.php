@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="card-body">
-                <form method="post" action="{{route('videos.update',['id' => $videos->id])}}"enctype="multiple/form-data" >
+                <form method="post" action="{{route('videos.update',['id' => $videos->id])}}"  enctype="multipart/form-data">
                   @csrf
                   {{method_field('PUT')}}
                     <div class="row">
@@ -36,7 +36,7 @@
                  <div class="col-md-6 {{$errors->has('image') ? 'has-error' : ''}}" >
                         <div class="">
                           <label class="">Video image</label>
-                          <input type="file" name ="image" value="{{$videos->image}}">
+                          <input type="file" name ="image">
                       <span class="text-danger">{{ $errors->has('image') ? $errors->first('image') : ''}}</span>
                    </div>
                   </div>

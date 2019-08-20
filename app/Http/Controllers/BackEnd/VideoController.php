@@ -19,7 +19,7 @@ class VideoController extends Controller
 
   public function index()
 	{
-	 $videos = Video::paginate(5);
+	 $videos = Video::orderBy('id','desc')->paginate(5);
         
       return view('back-end.videos.index',compact('videos'))->with('category','user');
     }
@@ -73,12 +73,12 @@ class VideoController extends Controller
 
     public function update(Update $request,$id)
     {
-        $videos = Video::findOrFail($id);
-    	
+        $videos = Video::findOrFail($id);	
         $requstArray = $request->all();
-
+         // dd($request->all());
 
      if($request->hasFile('image')) {
+
         $file  = $request->file('image');
         $fileName = time().str_random('10').'.'.$file->getClientOriginalExtension();
         $file->move(public_path('admin_uploads') , $fileName);

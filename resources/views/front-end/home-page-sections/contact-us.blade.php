@@ -2,7 +2,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
-            <h2 class="text-center">Keep in touch?</h2>
+            <h2 class="text-center">Contact Us</h2>
             <form class="contact-form" action="{{route('contact.store')}}">
               <div class="row">
                 <div class="col-md-6 {{$errors->has('name') ? 'has-error' : ''}}">
